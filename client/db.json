@@ -1,0 +1,193 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Exe Unga All Purpose Fortified Wheat Flour - 2Kg",
+      "price": 195,
+      "description": "It is milled from a blend of the finest wheat and is suitable for making pastries, pancakes, chapatis, mandazis and other confectionery products. Exe All Purpose flour is great for thickening sauces and as a coating for food when frying.",
+      "category": "Food Cupboard",
+      "rating": 5,
+      "stock": 5,
+      "image_url": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/64/466134/1.jpg?0971"
+    },
+    {
+      "id": 2,
+      "name": "Pembe Maize Meal - 2Kg",
+      "price": 169,
+      "description": "Maize Meal Fortified with VItamins and Minerals 2Kg. Pembe Maize Meal fortified with natural vitamins such as A, B1, B2, B3, B6, B12, Folic Acid, Iron & Zinc, and minerals. Pembe Maize Meal a very nutritious product & a great source of energy. Place your order and have it delivered to your doorstep.",
+      "category": "Food Cupboard",
+      "rating": 5,
+      "stock": 5,
+      "image_url": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/64/466134/1.jpg?0971"
+    },
+    {
+      "id": 3,
+      "name": "Brookside Dairy Best Milk 500ml",
+      "price": 1455,
+      "description": "Brookside Dairy Best Milk is the ultimate whole milk uniquely pasteurized to keep the milk safe and maintain milks essential nutrients & goodness. The journey of Brookside Dairy's milk, right from the farm-gates through to manufacturing lines and all the way to the point of sale, is pivoted on a stringent quality standards management process, with more than 202 quality tests undertaken from grass to glass. Delight in any of these nutritious Brookside products Kenya's no.1 dairy brand. As East Africa's largest milk processor with operations in more than 12 countries, Brookside Dairy prides itself in a heritage of high quality milk products. Brookside Dairy Best Milk is the best selling items in most stores",
+      "category": "Dairy Products",
+      "rating": 5,
+      "stock": 5,
+      "image_url": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/02/0472861/1.jpg?3124"
+    },
+    {
+      "id": 4,
+      "name": "Fresh Fri Fresh Fri Triple Refined Vegetable Cooking Oil - 5 Litres",
+      "price": 1199,
+      "description": "Fresh fri is a premium triple refined vegetable oil made from pure vegetable oil. It is cholesterol free that is great for your whole cookery requirements. For a happy, healthy living. fortified with vitamins A & D, good for your vision, immune system, skin, bones and heart. Place your order for this amazing product from",
+      "category": "Cooking Oil",      
+      "rating": 5,
+      "stock": 5,
+      "image_url": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/85/249074/1.jpg?4337"
+    },
+    {
+      "id": 5,
+      "name": "Raha Drinking Chocolate 200g Jars",
+      "price": 200,
+      "description": "Raha Drinking Chocolate The product is simply delicious, hot or cold. Raha Drinking Chocolate is the perfect drink to unwind any time of the day. Shop from a Huge Collection - Enjoy Shopping Best Offers & Deals Online ",
+      "category": "Drinks and Beverage",
+      "stock": 4,
+      "rating": 5,
+      "image_url": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/80/805676/1.jpg?7561"
+    },
+    {
+      "id": 6,
+      "name": "Jacob's Creek Jacob's Creek Classic Chardonnay - 750ml",
+      "price": 999,
+      "description": "Enjoy Shopping Jacob's Creek Wine at best price in the market at Our Store Kenya.Our Wine brands cover a wide range of origins and tastes. Shared over a meal or on other occasions, wine is more and more appreciated around the world by a growing variety of consumers. Brands include: Try them today. Shop from a Huge Collection",
+      "category": "Drinks and Beverage",
+      "stock": 4,
+      "rating": 5,
+      "image_url": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/90/283585/2.jpg?1887"
+    },
+    {
+      "id": 7,
+      "name": "Toss Lavender Detergent Powder plastic container - 1kg",
+      "price": 355,
+      "description": "Toss Lavender Detergent Powder is a high performance washing powder that has a powerful brand image and a large widespread customer base since the mid 90s. Extremely gentle on your hands with a nice fresh smell, Toss removes even the most stubborn stains of all without affecting the colour of your clothes. Make your order today and we will deliver in just 2-4 days.",
+      "category": "Household Supplies",
+      "stock": 5,
+      "image_url": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/67/441925/1.jpg?2451"
+      },
+      {
+      "id": 8,
+      "name": "Hanan Toilet Paper - 8 Pack",
+      "price": 410,
+      "description":"Hanan represents compassion, warm-heartedness, love and care. Our brand represents this by providing a wide range of premium quality products. Shop from a Huge Collection - Enjoy Shopping Best Offers & Deals Online",
+      "category": "Household Supplies",
+      "stock": 5,
+      "image_url": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/99/399247/2.jpg?5939"
+      },
+      {
+      "id": 9,
+      "name": "Listerine Mouthwash Total Care 250ml",
+      "price": 1125,
+      "description": "6 in 1 Benefits Listerine Total Care Anticavity Mouthwash is a complete mouthwash.* Every member of the family has their very own oral care needs. With six benefits, Listerine Total Care is a simple solution to keep them all taken care of.** Listerine Total Care delivers six benefits to clean your whole mouth, kill bad breath germs, prevent cavities, restore enamel, freshen breath, and strengthen teeth. Listerine Total Care gives your mouth a clean, fresh feeling and taste.",
+      "category": "Health and Beauty",
+      "stock": 5,
+      "image_url": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/93/821153/1.jpg?0366"
+      },
+      {
+      "id": 10,
+      "name": "La Roche-Posay Cicaplast Baume B5 40ml",
+      "price": 2455,
+      "description": "Cicaplast Balm B5 is a soothing multi-purpose cream for face, hands & body to soothe and hydrate cracked, chapped, and chafed skin. This multi-purpose cream provides daily relief for dry to very dry skin. Fragrance-free.",
+      "category": "Health and Beauty",
+      "stock": 5,
+      "image_url": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/56/0735851/1.jpg?0564"
+      },
+      {
+      "id": 11,
+      "name": "Hisense 65A62G, 65'' Smart UHD 4K Frameless LED TV-YouTube, Netflix-Black",
+      "price": 89999,
+      "description": "The Hisense UHD Smart TV offers truly stunning 4K resolution picture. With Precision Colour and Super Contrast, the screen delivers vivid colours, rich details and deep blacks. It is a TV that offers a more immersive viewing experience that is well designed thank to the pure metal stand and diamond cut edge. Equipped with Voice Control Technology, never has a Smart TV been easier to use.",
+      "category": "Electronics",
+      "stock": 5,
+      "image_url": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/42/285289/1.jpg?1559"
+      },
+      {
+      "id": 12,
+      "name": "Apple MacBook Pro 2021 M1 Pro 16.2 inch 16GB 512GB SSD - Gray",
+      "price": 327000,
+      "description": "Introducing the Apple MacBook Pro 2021 M1 Pro, a cutting-edge powerhouse that redefines the boundaries of performance and innovation. Equipped with the revolutionary M1 Pro chip featuring a 10-core CPU and a mind-blowing 16-core GPU, this laptop delivers unparalleled speed and efficiency for both creative professionals and everyday users. Immerse yourself in the brilliance of the 16.2-inch Retina XDR display, boasting an impressive resolution of 3456 x 2234 pixels. Whether you are editing high-resolution videos, designing intricate graphics, or simply enjoying your favorite content, the clarity and vibrancy of the display will leave you captivated. With 16GB of unified memory, multitasking becomes seamless, allowing you to effortlessly switch between demanding applications without compromising performance. The 512GB internal storage ensures ample space for your files, projects, and multimedia content. Connectivity is a breeze with three Thunderbolt/USB 4 ports, an HDMI port, an SDXC card slot, and the convenient MagSafe 3 port for fast and secure charging. The MacBook Pro 2021 M1 Pro is not just a laptop; its a technological marvel that sets new standards for power, speed, and versatility in the world of computing. Elevate your experience with Apples latest masterpiece in a sleek and sophisticated Gray finish.",
+      "category": "Electronics",
+      "stock": 5,
+      "image_url": "https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=1420&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  
+      }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "user_name": "Michael Njogu",
+      "email": "michael.njogu@gmail.com",
+      "password": "michael01",
+      "address": "619-00200",
+      "payment_information": "m-pesa"
+    },
+    {
+      "id": 2,
+      "user_name": "Erick Mwirigi",
+      "email": "erick.mwirigi@gmail.com",
+      "password": "erick01",
+      "address": "555-01000",
+      "payment_information": "m-pesa"
+    },
+    {
+      "id": 3,
+      "user_name": "Melvin Mbae",
+      "email": "melvin.mbae@gmail.com",
+      "password": "melvin22",
+      "address": "61478-01000",
+      "payment_information": "m-pesa"
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "product_id": 9,
+      "user_name": "Trevour Kitavi",
+      "rating": 5,
+      "comment": "Wow. Just an amazing product to say the least"
+    },
+    {
+      "id": 1,
+      "product_id": 10,
+      "user_name": "Trevour Kitavi",
+      "rating": 5,
+      "comment": "Wow. Just wow"
+    },
+    {
+      "id": 1,
+      "product_id": 1,
+      "user_name": "Michael Njogu",
+      "rating": 3,
+      "comment": "Amazing"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "user": "Melvin Mbae",
+      "user_id": 3,
+      "product_id": 9,
+      "rating": 4,
+      "comment": "Does the job",
+      "date": true
+    },
+    {
+      "user": "Melvin Mbae",
+      "comment": "Did not work for me",
+      "product_id": 10,
+      "id": 3
+    },
+    {
+      "user": "Melvin Mbae",
+      "comment": "First purchase and was not dissapointed.",
+      "product_id": 1,
+      "id": 4,
+      "stock": 5,
+      "image_url": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/90/283585/2.jpg?1887"
+    }
+  ]
+}
