@@ -546,4 +546,4 @@ class ProductReviewByID(Resource):
 api.add_resource(ProductReviewByID, '/reviews?<int:item_id>')
 
 if __name__ == '__main__':
-    app.run(port=5555, debug=True)
+    app.run(port=5555)
