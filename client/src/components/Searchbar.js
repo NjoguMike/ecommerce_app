@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ReactComponent as Search } from "../SearchIco.svg";
+import { ReactComponent as Search } from "../assets/SearchIco.svg";
 import { useNavigate } from "react-router-dom";
 
 export default function Searchbar({ products }) {

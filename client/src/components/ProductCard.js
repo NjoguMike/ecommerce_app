@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { strToPrice } from "shared/helpers";
-import {ReactComponent as AddCart} from "../AddToCart.svg"
-import { ReactComponent as Like} from "../Not_Liked.svg"
+import { strToPrice } from "../shared/helpers";
+import {ReactComponent as AddCart} from "../assets/AddToCart.svg"
+import { ReactComponent as Like} from "../assets/Not_Liked.svg"
 
 function ProductCard({ product, addToFavorite }) {
   return (
