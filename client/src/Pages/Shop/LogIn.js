@@ -3,7 +3,6 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../assets/Logo.png";
 import Swal from "sweetalert2";
-// import ls from "local-storage";
 
 export default function LogIn({ onLogIn }) {
   const [formData, setFormData] = useState({
@@ -32,7 +31,7 @@ export default function LogIn({ onLogIn }) {
         onLogIn(resp);
         Swal.fire({
           title: "Success!",
-          text: `Welcome  ${resp.lastname}`,
+          text: `Welcome  ${resp}`,
           icon: "success",
           confirmButtonText: "Okay",
         });

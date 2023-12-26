@@ -139,10 +139,7 @@ function App() {
 
   useEffect(() => {
     checkUser();
-    console.log("check")
   }, [user.id])
-
-  console.log(cart)
 
   return (
     <Routes>

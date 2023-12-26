@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, make_response
+from flask import Flask, jsonify, request, make_response, session
 from flask_migrate import Migrate
 from flask_restful import Api, Resource
 from models import db, Customer, Item, Order, Payment, Review, Favorite
@@ -7,6 +7,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///app.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SECRET_KEY'] = 'no_secretkey'
 app.json.compact = False
 
 migrate = Migrate(app, db)
@@ -35,10 +36,13 @@ class LogIn(Resource):
 
     @staticmethod
     def post():
-        user = Customer.query.filter_by(lastname=request.get_json()['username']).first()
-        
+        user = request.get_json()
+        user_details = Customer.query.filter_by(lastname=user['username']).first()
+
+        session['SID'] = user_details.id
+
         response = make_response(
-            jsonify(user.to_dict()),
+            jsonify(user_details.lastname),
             201,
         )
         return response
