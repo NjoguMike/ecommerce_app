@@ -4,7 +4,7 @@ from faker import Faker
 from app import app
 from models import db, Customer, Item
 
-with open("/home/mwagash/Development/code/Projects/Market_App/Phase-4-Project/client/db.json", mode="r") as itemdata:
+with open("/home/mwagash/ecommerce-app/client/db.json", mode="r") as itemdata:
     data = json.load(itemdata)
 
 item_data = [item for item in data]

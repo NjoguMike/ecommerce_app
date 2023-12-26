@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
-import ProductsPage from "./components/ProductsPage";
+import ProductsPage from "./Pages/Shop/ProductsPage";
 import "./App.css";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import NavBar from "./components/NavBar";
-import AccountProfile from "./components/AccountProfile";
-import ProfileSettings from "./components/ProfileSettings";
-import Orders from "./components/Orders";
-import Inbox from "./components/Inbox";
+import AccountProfile from "./Pages/User/AccountProfile";
+import ProfileSettings from "./Pages/User/ProfileSettings";
+import Orders from "./Pages/Shop/Orders";
+import Inbox from "./Pages/User/Inbox";
 import FavoriteProducts from "./components/FavoriteProduct";
-import LogIn from "./components/LogIn";
-import SignUp from "./components/SignUp";
-import CheckoutPage from "./components/CheckoutPage";
+import LogIn from "./Pages/Shop/LogIn";
+import SignUp from "./Pages/Shop/SignUp";
+import CheckoutPage from "./Pages/Shop/CheckoutPage";
 import ProductDetailsCard from "./components/ProductDetailsCard";
 import ls from "local-storage"
 

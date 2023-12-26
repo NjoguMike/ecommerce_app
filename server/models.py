@@ -1,6 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import validates
-from sqlalchemy.ext.associationproxy import association_proxy
 from sqlalchemy_serializer import SerializerMixin
 
 #Remember to Serialize when all tables are added
@@ -11,21 +10,17 @@ class Customer(db.Model, SerializerMixin):
     __tablename__ = 'customers'
 
     id = db.Column(db.Integer, primary_key=True)
-    firstname = db.Column(db.String, unique=True)
-    lastname = db.Column(db.String, unique=True)
+    firstname = db.Column(db.String)
+    lastname = db.Column(db.String)
     email = db.Column(db.String, unique=True)
     password = db.Column(db.String, unique=True)
-    address = db.Column(db.String, unique=True)
+    address = db.Column(db.String)
     created_at = db.Column(db.DateTime(), server_default=db.func.now())
     updated_at = db.Column(db.DateTime(), onupdate=db.func.now())
 
-    # orders = relationship('Order', back_populates='customer')
-    items = association_proxy('orders', 'item',
-        creator=lambda it: Review(item=it))
-
-
     def __repr__(self):
         return f'<Customer Item {self.firstname}>'
+    
     @validates("firstname", "lastname")
     def validate_names(self,key,name):
         if not name:

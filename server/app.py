@@ -1,24 +1,17 @@
-from flask import Flask, jsonify, request, make_response, session
+from flask import Flask, jsonify, request, make_response
 from flask_migrate import Migrate
 from flask_restful import Api, Resource
-from flask_session import Session
 from models import db, Customer, Item, Order, Payment, Review, Favorite
 from flask_cors import CORS
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://our_market_user:US63J3aNWXke1RJDKL7m408cYHQMv1xw@dpg-cm058bed3nmc738jof9g-a.frankfurt-postgres.render.com/our_market"
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///app.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SESSION_TYPE'] = 'sqlalchemy'
-
-app.config['SESSION_SQLALCHEMY'] = db
-Session(app)
 app.json.compact = False
-app.secret_key = 'no_key'
 
 migrate = Migrate(app, db)
 CORS(app)
 db.init_app(app)
-
 api = Api(app)
 
 
@@ -69,22 +62,21 @@ class Customers(Resource):
     @staticmethod
     def post():
         
-        data = request.get_json()
+        user_data = request.get_json()
         new_record = Customer(
-            firstname=data['firstname'],
-            lastname=data['lastname'],
-            email=data['email'],
-            password=data['password'],
-            address=data['address'],
+            firstname=user_data['firstname'],
+            lastname=user_data['lastname'],
+            email=user_data['email'],
+            password=user_data['password'],
+            address=user_data['address'],
         )
 
         db.session.add(new_record)
         db.session.commit()
 
-        response_dict = new_record.to_dict()
-
         response = make_response(
-            jsonify(response_dict),
+            jsonify(new_record.to_dict()
+),
             201,
         )
         return response
@@ -106,17 +98,17 @@ class CustomerByID(Resource):
 
     @staticmethod
     def patch(id):
-        record = Customer.query.filter_by(id=id).first()
-        for attr in request.get_json():
-            setattr(record, attr, request.get_json()[attr])
+        customer_record = Customer.query.filter_by(id=id).first()
+        customer_data = request.get_json()
 
-        db.session.add(record)
+        for attr in customer_data:
+            setattr(customer_record, attr, customer_data[attr])
+
+        db.session.add(customer_record)
         db.session.commit()
 
-        response_dict = record.to_dict()
-
         response = make_response(
-            jsonify(response_dict),
+            jsonify(customer_record.to_dict()),
             200
         )
         return response
@@ -155,23 +147,23 @@ class Items(Resource):
 
     @staticmethod
     def post():
+        item_data = request.get_json()
+
         new_record = Item(
-            name=request.form['name'],
-            description=request.form['description'],
-            price=request.form['price'],
-            category=request.form['category'],
-            imageUrl=request.form['imageUrl'],
-            rating=request.form['rating'],
-            quantity=request.form['quantity'],
+            name=item_data["name"],
+            description=item_data["description"],
+            price=item_data["price"],
+            category=item_data["category"],
+            imageUrl=item_data["imageUrl"],
+            rating=item_data["rating"],
+            quantity=item_data["quantity"],
         )
 
         db.session.add(new_record)
         db.session.commit()
 
-        response_dict = new_record.to_dict()
-
         response = make_response(
-            jsonify(response_dict),
+            jsonify(new_record.to_dict()),
             201,
         )
         return response
@@ -546,4 +538,4 @@ class ProductReviewByID(Resource):
 api.add_resource(ProductReviewByID, '/reviews?<int:item_id>')
 
 if __name__ == '__main__':
-    app.run(port=5555)
+    app.run(port=5555, debug=True)
