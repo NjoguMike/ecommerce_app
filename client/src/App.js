@@ -1,25 +1,24 @@
 import React, { useState, useEffect } from "react";
 import ProductsPage from "./Pages/Shop/ProductsPage";
-import "./App.css";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import AccountProfile from "./Pages/User/AccountProfile";
-import ProfileSettings from "./Pages/User/ProfileSettings";
-import Orders from "./Pages/Shop/Orders";
-import Inbox from "./Pages/User/Inbox";
+import ProfileSettings from "./Pages/ProfileSettings";
+import Orders from "./Pages/Orders";
+import Inbox from "./Pages/Inbox";
 import FavoriteProducts from "./components/FavoriteProduct";
-import LogIn from "./Pages/Shop/LogIn";
+// import LogIn from "./Pages/Shop/LogIn";
 import SignUp from "./Pages/Shop/SignUp";
-import CheckoutPage from "./Pages/Shop/CheckoutPage";
+import CheckoutPage from "./Pages/CheckoutPage";
 import ProductDetailsCard from "./components/ProductDetailsCard";
-import ls from "local-storage"
+// import ls from "local-storage"
 
 function App() {
 
   const [products, setProducts] = useState([]);
   const [favoriteProducts, setFavoriteProducts] = useState([]);
   const [orders, setOrders] = useState([]);
-  const [isMember, setMember] = useState("");
+  // const [isMember, setMember] = useState("");
   const [productsDictionary, setProductsDictionary] = useState({});
   const [commentsDictionary, setCommentsDictionary] = useState({});
   const [cart, setCart] = useState([]);
@@ -48,8 +47,19 @@ function App() {
       .then((data) => setFavoriteProducts(data));
   }
 
+  // function fetchUser() {
+  //   fetch("http://127.0.0.1:5555/login",{
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     }
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => console.log(data));
+  // }
+
   useEffect(() => fetchProductData(), []);
   useEffect(() => fetchFavs(), []);
+  // useEffect(() => fetchUser(), []);
 
   function setToFavoriteProducts(item) {
     if (favoriteProducts.includes(item.id)) {
@@ -116,30 +126,30 @@ function App() {
     },[])
   }
 
-  const onLogIn = (user) => {
-    setMember(user);
-    ls.set("user", user)
-  }
+  // const onLogIn = (user) => {
+  //   setMember(user);
+  //   ls.set("user", user)
+  // }
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const localUser = ls.get("user") || {};
-    setUser(localUser)
-  }, []);
+  // useEffect(() => {
+  //   const localUser = ls.get("user") || {};
+  //   setUser(localUser)
+  // }, []);
 
 
-  const checkUser = () => {
-    if (user.id) {
-      if (document.location.name == "/login") navigate("/products", { replace: true });
-    } else {
-      if (document.location.name !== "/login") navigate("/login", { replace: true });
-    }
-  }
+  // const checkUser = () => {
+  //   if (user.id) {
+  //     if (document.location.name == "/login") navigate("/products", { replace: true });
+  //   } else {
+  //     if (document.location.name !== "/login") navigate("/login", { replace: true });
+  //   }
+  // }
 
-  useEffect(() => {
-    checkUser();
-  }, [user.id])
+  // useEffect(() => {
+  //   checkUser();
+  // }, [user.id])
 
   return (
     <Routes>
@@ -157,7 +167,7 @@ function App() {
         }
       />
       <Route
-        path="products"
+        path="/"
         element={
           <ProductsPage
             products={products}
@@ -178,15 +188,14 @@ function App() {
           />}
       />
       </Route>
-      <Route path="/login" element={<LogIn onLogIn={onLogIn} />} />
       <Route path="/signup" element={<SignUp />} />
       <Route
         path="/account"
-        element={<AccountProfile userData={isMember} itemCount={cart} />}
+        element={<AccountProfile userData={user} itemCount={cart} />}
       >
         <Route
           index
-          element={<AccountProfile userData={isMember} itemCount={cart} />}
+          element={<AccountProfile userData={user} itemCount={cart} />}
         />
         <Route path="inbox" element={<Inbox />} />
         <Route path="orders" element={<Orders cart={cart} user={user} setOrder={handleOrder}/>} />

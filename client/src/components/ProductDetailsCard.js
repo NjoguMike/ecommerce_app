@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Comments from "./Comments";
 import { useParams } from "react-router-dom";
-import { strToPrice } from "../shared/helpers";
+import { strToPrice } from "../utils/helpers";
 
 function ratingStars(num) {
   let i = 0;

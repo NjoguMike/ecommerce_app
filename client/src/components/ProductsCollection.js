@@ -4,7 +4,6 @@ import ProductCard from "./ProductCard";
 
 function ProductsCollection({ products, setFavorite }) {
   return (
-    <div className="market-collection">
       <div className="product-collection">
         {products.map((product) => (
           <ProductCard
@@ -14,7 +13,6 @@ function ProductsCollection({ products, setFavorite }) {
           />
         ))}
       </div>
-    </div>
   );
 }
 export default ProductsCollection;

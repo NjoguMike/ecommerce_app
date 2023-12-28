@@ -11,7 +11,6 @@ function ProductsPage({ products, setToFavorite }) {
           <FeaturedProducts products={products} />
           <ProductsCollection products={products} setFavorite={setToFavorite} />
       </div>
-
     </div>
   );
 }

@@ -1,14 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { strToPrice } from "../shared/helpers";
+import { strToPrice } from "../utils/helpers";
 import {ReactComponent as AddCart} from "../assets/AddToCart.svg"
 import { ReactComponent as Like} from "../assets/Not_Liked.svg"
 
 function ProductCard({ product, addToFavorite }) {
   return (
-    <div className="product-cards">
-      <div className="product-image">
+    <div className="product-card">
+      <div className="product-box">
         <img
+          className="product-img"
           src={product.imageUrl}
           alt="product-cover"
         />
@@ -16,12 +17,15 @@ function ProductCard({ product, addToFavorite }) {
         <h4>{strToPrice(product.price)}</h4>
         <p>{product.category}</p>
       </div>
-      <div className="view-add-btns">
-        <button className="productButton">
+      <div className="product-components">
+        <button className="product-button">
           <Link to={`/products/${product.id}`}>View</Link>
         </button>
-        <Like onClick={addToFavorite} className="iconButton"/>
-        <AddCart onClick={addToFavorite} className="iconButton"/>
+        <span>
+          <Like onClick={addToFavorite} className="icon-button like"/>
+          <AddCart onClick={addToFavorite} className="icon-button cart"/>
+        </span>
+
       </div>
     </div>
   );
