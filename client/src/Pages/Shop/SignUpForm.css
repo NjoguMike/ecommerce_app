@@ -1,0 +1,66 @@
+* {
+  box-sizing: border-box;
+}
+
+.login-dialogue {
+    width: 100vw;
+    height: 100vh;
+    color: rgb(24, 23, 23);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: url(https://images.unsplash.com/photo-1522204523234-8729aa6e3d5f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D) no-repeat center;
+    background-size: cover;
+  }
+  .logo {
+    width: 100px;
+  }
+  .form-dialogue {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 20px;
+    background: #fff;
+    border: solid thin #247254e8;
+    padding: 20px;
+    border-radius: 18px;
+    margin-top: 50px;
+    width: 350px;
+    height: auto;
+  }
+.form-item {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    row-gap: 8px;
+  }
+.form-item label {
+    font-weight: 600;
+    font-size: larger;
+    color: #247254e8;
+    width: 80%;
+  }
+.form-item input {
+    outline: none;
+    border-radius: 3px;
+    padding: 8px;
+    border: solid thin grey;
+  }
+.signup-btn {
+    width: 100px;
+    font-weight: 400;
+    background: #1a6f6c;
+    color: #ffffff;
+    padding: 5px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+.signup-btn:hover{
+    background: #ffffff;
+    color: #247254e8;
+    border: 2px solid #247254e8;
+  }

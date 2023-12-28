@@ -192,11 +192,7 @@ function App() {
       <Route
         path="/account"
         element={<AccountProfile userData={user} itemCount={cart} />}
-      >
-        <Route
-          index
-          element={<AccountProfile userData={user} itemCount={cart} />}
-        />
+        >
         <Route path="inbox" element={<Inbox />} />
         <Route path="orders" element={<Orders cart={cart} user={user} setOrder={handleOrder}/>} />
         <Route
