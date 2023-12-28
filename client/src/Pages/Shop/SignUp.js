@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Logo from "../../assets/Logo.png";
 import Swal from "sweetalert2";
 import SignUpForm from "../../utils/form";
+import "../Shop/SignUpForm.css"
 
 export default function SignUp() {
   const [formData, setFormData] = useState({

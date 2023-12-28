@@ -16,9 +16,9 @@
   width: fit-content;
 }
 
-.logo {
+/* .logo {
   width: 100px;
-}
+} */
 
 a {
   display: block;
@@ -97,7 +97,7 @@ nav > .nav-items {
   background: #1a6f6c;
 }
 
-.login-dialogue {
+/* .login-dialogue {
   width: 100vw;
   height: 100vh;
   color: rgb(24, 23, 23);
@@ -110,9 +110,9 @@ nav > .nav-items {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-}
+} */
 
-.form-dialogue {
+/* .form-dialogue {
   background: #fff;
   border: solid thin grey;
   padding: 20px;
@@ -179,7 +179,7 @@ form > .signup-btn {
 form > .signup-btn:hover{
   color: #3b18b9;
   text-decoration: underline;
-}
+} */
 
 .search-container {
   padding-top: 4vh;
@@ -252,7 +252,7 @@ form > .signup-btn:hover{
   background-color: #c2c1c1;
 }
 
-input {
+/* input {
   border: none;
   outline: none;
   text-align: left;
@@ -267,7 +267,7 @@ label {
   font-weight: 600;
   font-size: larger;
   flex-shrink: 0;
-}
+} */
 
 .account-profile {
   width: 100%;
