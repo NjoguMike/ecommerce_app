@@ -59,6 +59,32 @@ transition: all 0.7s;
     column-gap: 15px;
     row-gap: 15px;
 }
+.featured-products{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 450px;
+
+    .featured{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        column-gap: 35px;
+        height: 300px;
+    }
+    .featured-card{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        width: 200px;
+        height: 400px;
+    }
+}
+.products{
+    margin: 10px;
+}
 .main-page{
     display: flex;
     flex-direction: row;
