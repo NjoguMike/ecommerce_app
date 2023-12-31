@@ -13,9 +13,11 @@ function ProductCard({ product, addToFavorite }) {
           src={product.imageUrl}
           alt="product-cover"
         />
-        <h3>{product.name}</h3>
-        <h4>{strToPrice(product.price)}</h4>
-        <p>{product.category}</p>
+        <div>
+          <h3>{product.name}</h3>
+          <h4>{strToPrice(product.price)}</h4>
+          <p>{product.category}</p>
+        </div>
       </div>
       <div className="product-components">
         <button className="product-button">

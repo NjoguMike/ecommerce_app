@@ -7,7 +7,7 @@ import ProfileSettings from "./Pages/ProfileSettings";
 import Orders from "./Pages/Orders";
 import Inbox from "./Pages/Inbox";
 import FavoriteProducts from "./components/FavoriteProduct";
-// import LogIn from "./Pages/Shop/LogIn";
+import LogIn from "./Pages/Shop/LogIn";
 import SignUp from "./Pages/Shop/SignUp";
 import CheckoutPage from "./Pages/CheckoutPage";
 import ProductDetailsCard from "./components/ProductDetailsCard";
