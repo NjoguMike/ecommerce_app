@@ -78,8 +78,6 @@ class CheckUser(Resource):
                 jsonify({"message":"please login to continue"}),
                 401,
             )
-        # # # response.headers['Access-Control-Allow-Credentials'] = 'true'
-        # return response
 
 api.add_resource(CheckUser, '/user')
 

@@ -21,7 +21,7 @@ function App() {
   const [productsDictionary, setProductsDictionary] = useState({});
   const [commentsDictionary, setCommentsDictionary] = useState({});
   const [cart, setCart] = useState([]);
-  const [user, setUser] = useState({});
+  // const [user, setUser] = useState({});
 
   function fetchProductData() {
     fetch("/items")
@@ -49,7 +49,7 @@ function App() {
   useEffect(() => { 
     fetch("/user").then((response) => {
         if (response.ok){
-          response.json().then((user) => setUser(user))
+          response.json().then((user) => setMember(user))
         }
       })
   }, [])
@@ -66,7 +66,7 @@ function App() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          customer_id: user.id,
+          customer_id: isMember.id,
           item_id: item.id,
         }),
       })
@@ -101,7 +101,6 @@ function App() {
         data.forEach((review) => {
           // const newCommentsForproduct = [...commentsDictionary[review.productID], review]
         });
-        // setReviews(data);
       });
   }
 
@@ -119,21 +118,11 @@ function App() {
     },[])
   }
 
-  const onLogIn = (user) => {
-    setMember(user);
-  }
-
-  console.log(isMember)
-//   <Route
-//   path="/"
-//   element={<NavBar onSearch={products} userData={user} />}
-// >
-
   return (
     <Routes>
       <Route
         path="/"
-        element={<NavBar onSearch={products} user={user} />}
+        element={<NavBar onSearch={products} user={isMember} />}
       >
       <Route
         index
@@ -145,7 +134,7 @@ function App() {
         }
       />
       <Route
-        path="/"
+        path="/products"
         element={
           <ProductsPage
             products={products}
@@ -166,14 +155,14 @@ function App() {
           />}
       />
       </Route>
-      <Route path="/login" element={<LogIn onLogIn={onLogIn} />} />
+      <Route path="/login" element={<LogIn onLogIn={setMember} />} />
       <Route path="/signup" element={<SignUp />} />
       <Route
         path="/account"
-        element={<AccountProfile userData={user} itemCount={cart} />}
+        element={<AccountProfile userData={isMember} itemCount={cart} />}
         >
         <Route path="inbox" element={<Inbox />} />
-        <Route path="orders" element={<Orders cart={cart} user={user} setOrder={HandleOrder}/>} />
+        <Route path="orders" element={<Orders cart={cart} user={isMember} setOrder={HandleOrder}/>} />
         <Route
           path="favorites"
           element={
@@ -183,10 +172,10 @@ function App() {
             />
           }
         />
-        <Route path="checkout" element={<CheckoutPage order={orders} cart={cart} user={user} setOrder={HandleOrder}/>} />
+        <Route path="checkout" element={<CheckoutPage order={orders} cart={cart} user={isMember} setOrder={HandleOrder}/>} />
         <Route
           path="profile-settings"
-          element={<ProfileSettings userData={user} />}
+          element={<ProfileSettings userData={isMember} />}
         />
       </Route>
     </Routes>

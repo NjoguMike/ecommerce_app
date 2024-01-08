@@ -29,10 +29,10 @@ export default function LogIn({ onLogIn }) {
       .then((r) => {
         if (r.ok){
           r.json().then((resp) => {
-          onLogIn(resp.username);
+          onLogIn(resp);
           Swal.fire({
             title: "Success!",
-            text: `Welcome  ${resp}`,
+            text: `Welcome  ${resp.username}`,
             icon: "success",
             confirmButtonText: "Okay",
           });

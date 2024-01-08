@@ -7,8 +7,7 @@ import LoginIcon from '@mui/icons-material/Login';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 export default function NavBar({ onSearch, user }) {
-  console.log(user)
-  const navigate = useNavigate();
+
   return (
     <>
       <nav>
