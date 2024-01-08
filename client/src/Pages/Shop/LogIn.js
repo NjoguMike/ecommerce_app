@@ -14,11 +14,11 @@ export default function LogIn({ onLogIn }) {
   const navigate = useNavigate();
   function handleSubmit(e) {
     e.preventDefault();
-    if (!formData) return;
-    setFormData({
-      username: "",
-      password: "",
-    });
+    // if (!formData) return;
+    // setFormData({
+    //   username: "",
+    //   password: "",
+    // });
     fetch("http://127.0.0.1:5555/login", {
       method: "POST",
       headers: {
@@ -26,17 +26,20 @@ export default function LogIn({ onLogIn }) {
       },
       body: JSON.stringify(formData),
     })
-      .then((r) => r.json())
-      .then((resp) => {
-        onLogIn(resp);
-        Swal.fire({
-          title: "Success!",
-          text: `Welcome  ${resp}`,
-          icon: "success",
-          confirmButtonText: "Okay",
+      .then((r) => {
+        if (r.ok){
+          r.json().then((resp) => {
+          onLogIn(resp);
+          Swal.fire({
+            title: "Success!",
+            text: `Welcome  ${resp}`,
+            icon: "success",
+            confirmButtonText: "Okay",
+          });
+          navigate("/", { replace: true });
         });
-        navigate("/products", { replace: true });
-      });
+        }
+      })
   }
 
   function handleChange(e) {

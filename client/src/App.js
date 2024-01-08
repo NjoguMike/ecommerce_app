@@ -18,14 +18,14 @@ function App() {
   const [products, setProducts] = useState([]);
   const [favoriteProducts, setFavoriteProducts] = useState([]);
   const [orders, setOrders] = useState([]);
-  // const [isMember, setMember] = useState("");
+  const [isMember, setMember] = useState("");
   const [productsDictionary, setProductsDictionary] = useState({});
   const [commentsDictionary, setCommentsDictionary] = useState({});
   const [cart, setCart] = useState([]);
   const [user, setUser] = useState({});
 
   function fetchProductData() {
-    fetch("http://127.0.0.1:5555/items")
+    fetch("/items")
       .then((response) => response.json())
       .then((data) => {
         const dictionary = {};
@@ -42,30 +42,27 @@ function App() {
   }
 
   function fetchFavs() {
-    fetch("http://127.0.0.1:5555/favorites")
+    fetch("/favorites")
       .then((response) => response.json())
       .then((data) => setFavoriteProducts(data));
   }
 
-  // function fetchUser() {
-  //   fetch("http://127.0.0.1:5555/login",{
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     }
-  //   })
-  //     .then((response) => response.json())
-  //     .then((data) => console.log(data));
-  // }
+  useEffect(() => { 
+    fetch("/user").then((response) => {
+        if (response.ok){
+          response.json().then((user) => console.log(user.user.email))
+        }
+      })
+  }, [])
 
   useEffect(() => fetchProductData(), []);
   useEffect(() => fetchFavs(), []);
-  // useEffect(() => fetchUser(), []);
 
   function setToFavoriteProducts(item) {
     if (favoriteProducts.includes(item.id)) {
       alert(`${item.name} has already been added to favorites`);
     } else {
-      fetch("http://127.0.0.1:5555/favorites", {
+      fetch("/favorites", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -81,7 +78,7 @@ function App() {
   }
 
   function removeFromFavorites(item) {
-    fetch(`http://127.0.0.1:5555/favorites/${item.id}`, {
+    fetch(`/favorites/${item.id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -97,7 +94,7 @@ function App() {
   }
 
   function fetchProductReviews() {
-    const favoriteProductsURL = "http://127.0.0.1:5555/reviews";
+    const favoriteProductsURL = "/reviews";
 
     fetch(favoriteProductsURL)
       .then((response) => response.json())
@@ -111,14 +108,14 @@ function App() {
       });
   }
 
-  function addToCart(product){
+  function AddToCart(product){
     useEffect(()=>{
       const newCart = [...cart,product]
       setCart(newCart)
     },[])
   }
 
-  function handleOrder(order){
+  function HandleOrder(order){
     useEffect(()=>{
       // console.log(orders)
       const newCart = [...orders,order]
@@ -126,10 +123,9 @@ function App() {
     },[])
   }
 
-  // const onLogIn = (user) => {
-  //   setMember(user);
-  //   ls.set("user", user)
-  // }
+  const onLogIn = (user) => {
+    setMember(user);
+  }
 
   const navigate = useNavigate();
 
@@ -150,6 +146,11 @@ function App() {
   // useEffect(() => {
   //   checkUser();
   // }, [user.id])
+
+//   <Route
+//   path="/"
+//   element={<NavBar onSearch={products} userData={user} />}
+// >
 
   return (
     <Routes>
@@ -172,7 +173,7 @@ function App() {
           <ProductsPage
             products={products}
             setToFavorite={setToFavoriteProducts}
-            cart={addToCart}
+            cart={AddToCart}
           />
         }
       />
@@ -184,17 +185,18 @@ function App() {
             commentsDictionary={commentsDictionary}
             setCommentsDictionary={setCommentsDictionary}
             fetchProductReviews={fetchProductReviews}
-            addCart={addToCart}
+            addCart={AddToCart}
           />}
       />
       </Route>
+      <Route path="/login" element={<LogIn onLogIn={onLogIn} />} />
       <Route path="/signup" element={<SignUp />} />
       <Route
         path="/account"
         element={<AccountProfile userData={user} itemCount={cart} />}
         >
         <Route path="inbox" element={<Inbox />} />
-        <Route path="orders" element={<Orders cart={cart} user={user} setOrder={handleOrder}/>} />
+        <Route path="orders" element={<Orders cart={cart} user={user} setOrder={HandleOrder}/>} />
         <Route
           path="favorites"
           element={
@@ -204,7 +206,7 @@ function App() {
             />
           }
         />
-        <Route path="checkout" element={<CheckoutPage order={orders} cart={cart} user={user} setOrder={handleOrder}/>} />
+        <Route path="checkout" element={<CheckoutPage order={orders} cart={cart} user={user} setOrder={HandleOrder}/>} />
         <Route
           path="profile-settings"
           element={<ProfileSettings userData={user} />}

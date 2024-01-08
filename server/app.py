@@ -3,22 +3,22 @@ from flask_migrate import Migrate
 from flask_restful import Api, Resource
 from models import db, Customer, Item, Order, Payment, Review, Favorite
 from flask_cors import CORS
-from flask_session import Session
+# from flask_session import Session
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///app.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SECRET_KEY'] = 'nosecretkey'
-app.config['SESSION_TYPE'] = 'sqlalchemy'
+app.config['SECRET_KEY'] = b'Y\xf1Xz\x00\xad|eQ\x80t \xca\x1a\x10K'
+# app.config['SESSION_TYPE'] = 'sqlalchemy'
 app.json.compact = False
 
 migrate = Migrate(app, db)
 CORS(app)
 
 db.init_app(app)
-app.config['SESSION_SQLALCHEMY'] = db
+# app.config['SESSION_SQLALCHEMY'] = db
 
-Session(app)
+# Session(app)
 api = Api(app)
 
 
@@ -41,23 +41,16 @@ api.add_resource(Index, '/')
 class LogIn(Resource):
 
     @staticmethod
-    def get():
-        response = make_response(
-            session,200
-        )
-        return response
-
     def post():
         user = request.get_json()
         user_details = Customer.query.filter_by(lastname=user["username"]).first()
-
         session['user_id'] = user_details.id
 
         response = make_response(
             jsonify(user_details.lastname),
-            201,
+            200,
         )
-        response.set_cookie("session", str(user_details.id))
+        # response.set_cookie("session", str(user_details.id))
         return response
 
 api.add_resource(LogIn, '/login')
@@ -68,25 +61,22 @@ class CheckUser(Resource):
 
     @staticmethod
     def get():
-
-        user = request.cookies.get("session")
-        user_details = Customer.query.filter_by(id=int(user,10)).first()
+        user = session.get('user_id')
+        user_details = Customer.query.filter_by(id=user).first()
 
         if user_details:
-            response = make_response(
-                jsonify({
+            return make_response(jsonify({
                     "user":{"email":user_details.email,
-                            "username":user_details.lastname}
-                }),
-                201,
+                            "username":user_details.lastname}}),
+                200,
             )
         else:
-            response = make_response(
+            return make_response(
                 jsonify({"message":"please login to continue"}),
-                201,
+                401,
             )
-        # # response.headers['Access-Control-Allow-Credentials'] = 'true'
-        return response
+        # # # response.headers['Access-Control-Allow-Credentials'] = 'true'
+        # return response
 
 api.add_resource(CheckUser, '/user')
 

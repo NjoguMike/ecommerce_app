@@ -20,9 +20,7 @@ function ProductCard({ product, addToFavorite }) {
         </div>
       </div>
       <div className="product-components">
-        <button className="product-button">
-          <Link to={`/products/${product.id}`}>View</Link>
-        </button>
+        <Link to={`/products/${product.id}`}>View</Link>
         <span>
           <Like onClick={addToFavorite} className="icon-button like"/>
           <AddCart onClick={addToFavorite} className="icon-button cart"/>

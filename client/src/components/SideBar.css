@@ -75,8 +75,8 @@
     background-color: #1a6f6c;
     color: azure;
     position: sticky;
-    /* top: 0;
-    left: 0; */
+    top: 0;
+    left: 0;
     width: 100px;
     height: 100vh;
     transition: all 0.6s;
