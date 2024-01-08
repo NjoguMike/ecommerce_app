@@ -21,7 +21,6 @@ function App() {
   const [productsDictionary, setProductsDictionary] = useState({});
   const [commentsDictionary, setCommentsDictionary] = useState({});
   const [cart, setCart] = useState([]);
-  // const [user, setUser] = useState({});
 
   function fetchProductData() {
     fetch("/items")
@@ -122,7 +121,7 @@ function App() {
     <Routes>
       <Route
         path="/"
-        element={<NavBar onSearch={products} user={isMember} />}
+        element={<NavBar onSearch={products} user={isMember} setMember={setMember}/>}
       >
       <Route
         index
@@ -134,7 +133,7 @@ function App() {
         }
       />
       <Route
-        path="/products"
+        path="/"
         element={
           <ProductsPage
             products={products}

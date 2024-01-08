@@ -81,6 +81,21 @@ class CheckUser(Resource):
 
 api.add_resource(CheckUser, '/user')
 
+class LogOut(Resource):
+
+    @staticmethod
+    def delete():
+        session['user_id'] = None
+
+        response = make_response(
+            jsonify({
+                "message": "You have been Logged-Out Successfully"}),
+            200,
+        )
+        return response
+
+api.add_resource(LogOut, '/logout')
+
 class Customers(Resource):
 
     @staticmethod

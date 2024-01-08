@@ -5,8 +5,31 @@ import Logo from "../assets/Logo.png";
 import LogoutIcon from '@mui/icons-material/Logout';
 import LoginIcon from '@mui/icons-material/Login';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import Swal from "sweetalert2";
 
-export default function NavBar({ onSearch, user }) {
+export default function NavBar({ onSearch, user , setMember}) {
+  const navigate = useNavigate();
+  function handleLogOut(){
+    fetch("/logout", {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      }
+    }).then((resp) => {
+      if (resp.ok){
+        resp.json().then((r)=>{
+          setMember("")
+          Swal.fire({
+            title: "Success!",
+            text: `GoodBye ${r.message}`,
+            icon: "success",
+            confirmButtonText: "Okay",
+          });
+          navigate("/", { replace: true });
+        })
+      }
+    })
+  }
 
   return (
     <>
@@ -19,7 +42,7 @@ export default function NavBar({ onSearch, user }) {
           </NavLink>
             {user.email ? (
               <div className="nav-links">
-                  <NavLink to={"/products"}>
+                  <NavLink to={"/products"} onClick={handleLogOut}>
                     Log Out <LogoutIcon /> 
                   </NavLink>
                   <NavLink to={"/account/profile-settings"}>
