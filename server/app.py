@@ -47,10 +47,12 @@ class LogIn(Resource):
         session['user_id'] = user_details.id
 
         response = make_response(
-            jsonify(user_details.lastname),
+            jsonify({
+                "id":user_details.id,
+                "email":user_details.email,
+                "username":user_details.lastname}),
             200,
         )
-        # response.set_cookie("session", str(user_details.id))
         return response
 
 api.add_resource(LogIn, '/login')
@@ -66,8 +68,9 @@ class CheckUser(Resource):
 
         if user_details:
             return make_response(jsonify({
-                    "user":{"email":user_details.email,
-                            "username":user_details.lastname}}),
+                "id":user_details.id,
+                "email":user_details.email,
+                "username":user_details.lastname}),
                 200,
             )
         else:
