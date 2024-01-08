@@ -30,7 +30,6 @@ export default function Searchbar({ products }) {
         onClick={() => navigate(`/products/${item.id}`)
         }
       >
-        <img src={item.imageUrl} alt={item.name} />
         <span>{item.name}</span>
       </div>
     );
@@ -39,7 +38,6 @@ export default function Searchbar({ products }) {
     <div className="search-container">
       <div className="search-bar">
         <input
-          className="search-input"
           placeholder="Search here"
           value={search}
           onChange={handleChange}

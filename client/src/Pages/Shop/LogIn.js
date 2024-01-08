@@ -14,12 +14,12 @@ export default function LogIn({ onLogIn }) {
   const navigate = useNavigate();
   function handleSubmit(e) {
     e.preventDefault();
-    // if (!formData) return;
-    // setFormData({
-    //   username: "",
-    //   password: "",
-    // });
-    fetch("http://127.0.0.1:5555/login", {
+    if (!formData) return;
+    setFormData({
+      username: "",
+      password: "",
+    });
+    fetch("/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -29,7 +29,7 @@ export default function LogIn({ onLogIn }) {
       .then((r) => {
         if (r.ok){
           r.json().then((resp) => {
-          onLogIn(resp);
+          onLogIn(resp.username);
           Swal.fire({
             title: "Success!",
             text: `Welcome  ${resp}`,

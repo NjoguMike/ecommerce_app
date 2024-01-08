@@ -2,9 +2,12 @@ import React from "react";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import Searchbar from "./Searchbar";
 import Logo from "../assets/Logo.png";
-import ls from "local-storage"
+import LogoutIcon from '@mui/icons-material/Logout';
+import LoginIcon from '@mui/icons-material/Login';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
-export default function NavBar({ onSearch, userData }) {
+export default function NavBar({ onSearch, user }) {
+  console.log(user)
   const navigate = useNavigate();
   return (
     <>
@@ -15,31 +18,27 @@ export default function NavBar({ onSearch, userData }) {
               <img className="logo" alt="logo" src={Logo} />
             </div>
           </NavLink>
-          <ul className="nav-links">
-            {userData.firstname ? (
-              <NavLink to={"/products"} onClick={() => {
-                if (!userData.firstname) {
-                  try {
-                    ls.clear();
-                    document.location.assign("/login")
-                  } catch (e) {
-                    console.log(e)
-                  }
-                }
-              }}>
-                <i className="bi bi-box-arrow-left"></i> Log Out ({userData.firstname} {userData.lastname})
-              </NavLink>
+            {user.email ? (
+              <div className="nav-links">
+                  <NavLink to={"/products"}>
+                    Log Out <LogoutIcon /> 
+                  </NavLink>
+                  <NavLink to={"/account/profile-settings"}>
+                  <AccountCircleIcon /> {user.email}
+                </NavLink>
+              </div>
             ) : (
-              <NavLink to={"/login"}>
-                <i className="bi bi-box-arrow-in-right"></i> Sign In
-              </NavLink>
+              <div className="nav-links">
+                <NavLink to={"/login"}>
+                  <LoginIcon /> Sign In
+                </NavLink>
+                <NavLink to={"/account/profile-settings"}>
+                <AccountCircleIcon /> {"Profile"}
+                </NavLink>
+              </div>
             )}
-            <NavLink to={"/account/profile-settings"}>
-              <i className="bi bi-person-circle"></i> Profile
-            </NavLink>
-          </ul>
-        </div>
-        <Searchbar className="searchbar" products={onSearch} />
+          </div>
+        <Searchbar products={onSearch} />
       </nav>
       <Outlet />
     </>

@@ -11,7 +11,6 @@ import LogIn from "./Pages/Shop/LogIn";
 import SignUp from "./Pages/Shop/SignUp";
 import CheckoutPage from "./Pages/CheckoutPage";
 import ProductDetailsCard from "./components/ProductDetailsCard";
-// import ls from "local-storage"
 
 function App() {
 
@@ -41,22 +40,21 @@ function App() {
       });
   }
 
-  function fetchFavs() {
+  useEffect(() => { 
     fetch("/favorites")
       .then((response) => response.json())
       .then((data) => setFavoriteProducts(data));
-  }
+    }, [])
 
   useEffect(() => { 
     fetch("/user").then((response) => {
         if (response.ok){
-          response.json().then((user) => console.log(user.user.email))
+          response.json().then((user) => setUser(user))
         }
       })
   }, [])
 
   useEffect(() => fetchProductData(), []);
-  useEffect(() => fetchFavs(), []);
 
   function setToFavoriteProducts(item) {
     if (favoriteProducts.includes(item.id)) {
@@ -100,7 +98,6 @@ function App() {
       .then((response) => response.json())
       .then((data) => {
         const parsedReviews = {};
-        console.log({ data })
         data.forEach((review) => {
           // const newCommentsForproduct = [...commentsDictionary[review.productID], review]
         });
@@ -117,7 +114,6 @@ function App() {
 
   function HandleOrder(order){
     useEffect(()=>{
-      // console.log(orders)
       const newCart = [...orders,order]
       setOrders(newCart)
     },[])
@@ -127,26 +123,7 @@ function App() {
     setMember(user);
   }
 
-  const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   const localUser = ls.get("user") || {};
-  //   setUser(localUser)
-  // }, []);
-
-
-  // const checkUser = () => {
-  //   if (user.id) {
-  //     if (document.location.name == "/login") navigate("/products", { replace: true });
-  //   } else {
-  //     if (document.location.name !== "/login") navigate("/login", { replace: true });
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   checkUser();
-  // }, [user.id])
-
+  console.log(isMember)
 //   <Route
 //   path="/"
 //   element={<NavBar onSearch={products} userData={user} />}
@@ -156,7 +133,7 @@ function App() {
     <Routes>
       <Route
         path="/"
-        element={<NavBar onSearch={products} userData={user} />}
+        element={<NavBar onSearch={products} user={user} />}
       >
       <Route
         index

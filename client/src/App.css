@@ -4,3 +4,115 @@
   padding: 0px;
   font-family: Merriweather !important;
 }
+a {
+  text-decoration: none;
+  color: #fff;
+}
+/*  Navbar Component */
+
+nav {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  background: #1a6f6c;
+
+  .nav-items {
+    display: flex;
+    justify-content: space-between;
+  
+    .logo-container {
+      padding: 20px;
+      background-color: white;
+      border-radius: 50%;
+      width: fit-content;
+    }
+    .nav-links {
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: space-around;
+      align-items: flex-end;
+      color: #fff;
+      font-weight: bold;
+    }
+    .nav-links > a {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      column-gap: 8px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .nav-links > a:hover {
+      cursor: pointer;
+      color: #fff;
+      font-size: 16.5px;
+    }
+  }
+
+  .search-container {
+    padding-top: 2vh;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    min-width: 250px;
+  
+    .search-bar {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 0 15px 0 0;
+      width: 100%;
+      height: 2.5rem;
+      display: flex;
+      align-items: center;
+      box-shadow: 0px 0px 2.4rem #29292934;
+
+      input {
+        background-color: transparent;
+        border: none;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        font-size: medium;
+        padding-left: 15px;
+      }
+      input:focus {
+        outline: none;
+      }
+    }
+
+    .search-results {
+      width: 30%;
+      margin-top: 5vh;
+      min-width: 250px;
+      background-color: #cfcfcf;
+      box-shadow: 0px 0px 2.4rem #29292934;
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 4px;
+      max-height: 200px;
+      overflow-y: scroll;
+      scroll-behavior: smooth;
+      cursor: pointer;
+      z-index: 1;
+    
+      .search-details {
+        color: #292828;
+        padding: 10px 15px;
+        width: 100%;
+        background-color: #fff;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-size: 14px;
+      }
+      .search-details:hover {
+        background-color: #c2c1c1;
+      }
+    }
+  }
+}
